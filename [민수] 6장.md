@@ -444,7 +444,9 @@ public class Member {
     private String username;
     
     @ManyToMany
-    @JoinTable(name = "MEMBER_PRODUCT", joinColumns = @JoinColumn(name = "MEMBER_ID"), inverseJoinColumns = @JoinColumn(name = "PRODUCT_ID"))
+    @JoinTable(name = "MEMBER_PRODUCT",
+                joinColumns = @JoinColumn(name = "MEMBER_ID"),
+                inverseJoinColumns = @JoinColumn(name = "PRODUCT_ID"))
     List<Product> products = new ArrayList<Product>();
 }
 ```
@@ -490,7 +492,8 @@ public class Product{
 
 }
 ```
-    역방향도 똑같이 @ManyToMany를 사용하고 양쪽 중 원하는 곳에 mappedBY로 연관관계를 만들어주면 된다.(물론 mappedBy가 없는 곳이 주인)
+    역방향도 똑같이 @ManyToMany를 사용하고 양쪽 중 원하는 곳에 mappedBY로 연관관계를 만들어주면 된다.
+    (물론 mappedBy가 없는 곳이 주인)
 
 - 다대다의 양방향 연관관계 설정  
     member.getProducts().add(product);  
